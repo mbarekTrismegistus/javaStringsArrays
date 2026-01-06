@@ -54,3 +54,49 @@ public class GradesManager {
     }
 }
 
+
+
+---
+
+##  `exercise2.md`
+
+```md
+# Exercise 2 – First Group Verb Conjugation
+
+## Problem
+Write a Java program that reads a French first-group verb and displays its conjugation in the present tense.
+
+The program must:
+- Verify that the verb ends with `er`
+- Assume the verb is regular
+
+---
+
+## Solution
+
+```java
+import java.util.Scanner;
+
+public class Conjugation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Entrez un verbe du premier groupe : ");
+        String verb = sc.nextLine().toLowerCase();
+
+        if (!verb.endsWith("er")) {
+            System.out.println("Ce n'est pas un verbe du premier groupe.");
+            return;
+        }
+
+        String root = verb.substring(0, verb.length() - 2);
+
+        System.out.println("je " + root + "e");
+        System.out.println("tu " + root + "es");
+        System.out.println("il/elle " + root + "e");
+        System.out.println("nous " + root + "ons");
+        System.out.println("vous " + root + "ez");
+        System.out.println("ils/elles " + root + "ent");
+    }
+}
+

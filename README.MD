@@ -1,8 +1,7 @@
 # OOP in Java  
 ## Strings and Arrays – Solutions
 
-**Author:** Loubna Aminou  
-**Academic Year:** 2025/2026  
+
 
 ---
 
@@ -60,8 +59,9 @@ public class GradesManager {
 
 ```
 
-# Exercise 2: First Group Verb Conjugation
-## Solution 
+## Exercise 2: First Group Verb Conjugation
+
+### Solution 
 
 ```java
 
@@ -91,4 +91,100 @@ public class Conjugation {
     }
 }
  
+```
+
+## Exercise 3: String Operations Menu
+
+```java
+
+import java.util.Scanner;
+
+public class StringMenu {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String text = "";
+        int choice;
+
+        do {
+            System.out.println("\n--- MENU ---");
+            System.out.println("1. Enter string");
+            System.out.println("2. Display string");
+            System.out.println("3. Reverse string");
+            System.out.println("4. Number of words");
+            System.out.println("0. Exit");
+            System.out.print("Choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter a string: ");
+                    text = sc.nextLine();
+                    break;
+
+                case 2:
+                    System.out.println("String: " + text);
+                    break;
+
+                case 3:
+                    String reversed = new StringBuilder(text).reverse().toString();
+                    System.out.println("Reversed: " + reversed);
+                    break;
+
+                case 4:
+                    String trimmed = text.trim();
+                    if (trimmed.isEmpty()) {
+                        System.out.println("Number of words: 0");
+                    } else {
+                        String[] words = trimmed.split("\\s+");
+                        System.out.println("Number of words: " + words.length);
+                    }
+                    break;
+            }
+
+            if (choice != 0) {
+                System.out.println("Press Enter to return to the menu...");
+                sc.nextLine();
+            }
+
+        } while (choice != 0);
+    }
+}
+
+```
+
+## Exercise 4: Letter Occurrences
+
+
+```java
+
+import java.util.Scanner;
+
+public class LetterOccurrences {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] nb_occurrences = new int[26];
+
+        System.out.print("Enter a line of text (max 100 characters): ");
+        String text = sc.nextLine().toUpperCase();
+
+        for (char c : text.toCharArray()) {
+            if (c >= 'A' && c <= 'Z') {
+                nb_occurrences[c - 'A']++;
+            }
+        }
+
+        System.out.println("The string \"" + text + "\" contains:");
+        for (int i = 0; i < 26; i++) {
+            if (nb_occurrences[i] > 0) {
+                System.out.println(
+                    nb_occurrences[i] + " occurrence(s) of the letter '" + (char) ('A' + i) + "'"
+                );
+            }
+        }
+    }
+}
+
 ```
